@@ -10,37 +10,49 @@
 </head>
 
 <body>
-  <main class="container" style="height: 100vh;">
-    <header class="text-center">
-      <h2 class="fw-bold">Selamat Datang</h2>
-      <p>Di Aplikasi E-Voting</p>
-    </header>
-    <div class="row d-flex justify-content-center mt-5">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <form action="">
-              <div class="mb-3">
-                <label for="nama_lengkap" class="form-label fw-semibold">Nama Lengkap</label>
-                <input type="text" class="form-control" id="nama_lengkap">
-              </div>
-              <div class="mb-3">
-                <label for="kelas" class="form-label fw-semibold">Kelas</label>
-                <input type="text" class="form-control" id="kelas">
-              </div>
-              <div class="mb-3">
-                <label for="token" class="form-label fw-semibold">Token</label>
-                <input type="text" class="form-control" id="token">
-              </div>
-              <div class="mb-3">
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">Masuk</button>
+  <main class="bg-warning" style="height: 100vh;">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-4">
+          <header class="text-center mb-4">
+            <h1 class="fw-bold">Selamat Datang</h1>
+            <p>Di Aplikasi E-Voting</p>
+          </header>
+          <div class="card">
+            <div class="card-body">
+              <form action="">
+                <div class="mb-3">
+                  <label for="nama_lengkap" class="form-label fw-semibold">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="nama_lengkap">
                 </div>
-              </div>
-            </form>
+                <div class="mb-3">
+                  <label for="kelas" class="form-label fw-semibold">Kelas <small class="text-secondary fw-normal"><i>
+                        (optional)</i></small></label>
+                  <input type="text" class="form-control" id="kelas">
+                </div>
+                <div class="mb-3">
+                  <label for="token" class="form-label fw-semibold">Token</label>
+                  <input type="text" class="form-control" id="token">
+                </div>
+                <div class="mb-3">
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Masuk</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col text-center text-secondary">
+              <small>Copyrigth &copy; 2023. created by <a href="https://github.com/alirfanyasin" target="_blank"
+                  class="fw-semibold text-decoration-none text-dark">Irfan Yasin</a> </small>
+            </div>
           </div>
         </div>
       </div>
+
+
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

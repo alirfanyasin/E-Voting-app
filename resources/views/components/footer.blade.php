@@ -4,23 +4,14 @@
       <div class="col-6 text-start">
         <p class="mb-0">
           <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>E-Voting</strong></a> - <a
-            class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin
-              Template</strong></a> &copy;
+            class="text-muted" href="https://adminkit.io/" target="_blank"><strong>&copy; 2023</strong></a>
         </p>
       </div>
       <div class="col-6 text-end">
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-          </li>
-          <li class="list-inline-item">
-            <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-          </li>
-          <li class="list-inline-item">
-            <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-          </li>
-          <li class="list-inline-item">
-            <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+            <a class="text-muted" href="https://adminkit.io/" target="_blank">Created by <a href=""
+                class="text-decoration-none text-dark fw-semibold">Irfan Yasin</a></a>
           </li>
         </ul>
       </div>

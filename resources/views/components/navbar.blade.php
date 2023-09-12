@@ -10,10 +10,13 @@
           <i class="align-middle" data-feather="settings"></i>
         </a>
         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-          <span class="text-dark">Admin</span>
+          <span class="text-dark">{{ Auth::user()->name }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-end">
-          <a class="dropdown-item" href="#">Log out</a>
+          <form action="{{ route('logout') }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="dropdown-item">Log out</button>
+          </form>
         </div>
       </li>
     </ul>
