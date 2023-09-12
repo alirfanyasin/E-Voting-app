@@ -56,9 +56,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/token/export', [TokenController::class, 'export'])->name('app.token.export');
         Route::get('/voters', [PemilihController::class, 'index'])->name('app.voters');
         Route::delete('/voters/destroy/{status}', [PemilihController::class, 'destroy'])->name('app.voters.destroy');
-
         Route::get('/monitoring', [MonitoringController::class, 'index'])->name('app.monitoring');
 
+        // Logging out
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     });
 });
