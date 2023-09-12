@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/candidate/update/{id}', [KandidatController::class, 'update'])->name('app.candidate.update');
         Route::delete('/candidate/destroy/{id}', [KandidatController::class, 'destroy'])->name('app.candidate.destroy');
         Route::get('/token', [TokenController::class, 'index'])->name('app.token');
+        Route::post('/token/bulk', [TokenController::class, 'bulk'])->name('app.token.bulk');
+        Route::delete('/token/destroy/{status}', [TokenController::class, 'destroy'])->name('app.token.destroy');
         Route::get('/pemilih', [PemilihController::class, 'index'])->name('app.pemilih');
         Route::get('/monitoring', [MonitoringController::class, 'index'])->name('app.monitoring');
 

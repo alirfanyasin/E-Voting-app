@@ -1,26 +1,35 @@
 @extends('layouts.app')
-@section('title', env('APP_NAME') . ' - Kandidat')
+@section('title', env('APP_NAME') . ' - Token')
 
 @section('content')
   <div class="container-fluid p-0">
     <h1 class="h3 mb-3">Token</h1>
+    @if (session()->has('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> {{ session('success') }}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     <div class="row">
       <div class="col-8">
         <div class="d-flex align-items-center gap-2">
-          <form action="" class="d-flex gap-2 align-items-center">
+          <form action="{{ route('app.token.bulk') }}" method="POST" class="d-flex gap-2 align-items-center">
+            @csrf
             <div class="mb-3">
               <label for="expired_date">Expired Date</label>
-              <input type="date" class="form-control" name="expired_date" id="expired_date">
+              <input type="date" class="form-control" name="expired" id="expired_date" required>
             </div>
             <div class="mb-3">
               <label for="amount">Amount</label>
-              <input type="number" class="form-control" name="amount" id="amount">
+              <input type="number" class="form-control" name="amount" id="amount" required>
             </div>
             <div>
               <button type="submit" class="btn btn-primary">Bulk Token</button>
             </div>
           </form>
-          <form action="" class="d-inline">
+          <form action="{{ route('app.token.destroy', ['status' => 'aktif']) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
             <button type="submit" class="btn btn-danger">Delete All</button>
           </form>
           <div>
@@ -33,25 +42,27 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <table id="tableKandidat" class="table table-striped" style="width:100%">
+            <table id="tableToken" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
                   <th width="100px">No</th>
                   <th>Token</th>
+                  <th>Status</th>
                   <th>Expired</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Hjdur93</td>
-                  <td>13 January 2023</td>
-                </tr>
-                <tr>
-                  <td>Garrett Winters</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                </tr>
+                @php
+                  $no = 1;
+                @endphp
+                @foreach ($token as $data)
+                  <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $data->token }}</td>
+                    <td>{{ $data->status }}</td>
+                    <td>{{ date('d F Y', strtotime($data->expired)) }}</td>
+                  </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -64,7 +75,7 @@
 @push('js')
   <script>
     $(document).ready(function() {
-      new DataTable('#tableKandidat');
+      new DataTable('#tableToken');
     })
   </script>
 @endpush
