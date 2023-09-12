@@ -16,7 +16,7 @@
                       <h5 class="card-title">Total Token</h5>
                     </div>
                   </div>
-                  <h1 class="mt-1 mb-3">382</h1>
+                  <h1 class="mt-1 mb-3">{{ count($totalToken) }}</h1>
                 </div>
               </div>
               <div class="card">
@@ -26,7 +26,7 @@
                       <h5 class="card-title">Jumlah Kandidat</h5>
                     </div>
                   </div>
-                  <h1 class="mt-1 mb-3">3</h1>
+                  <h1 class="mt-1 mb-3">{{ count($totalCandidate) }}</h1>
                 </div>
               </div>
             </div>
@@ -38,17 +38,17 @@
                       <h5 class="card-title">Total Suara</h5>
                     </div>
                   </div>
-                  <h1 class="mt-1 mb-3">300</h1>
+                  <h1 class="mt-1 mb-3">{{ count($totalVoters) }}</h1>
                 </div>
               </div>
               <div class="card">
                 <div class="card-body">
                   <div class="row">
                     <div class="col mt-0">
-                      <h5 class="card-title">Petugas</h5>
+                      <h5 class="card-title">Pengurus</h5>
                     </div>
                   </div>
-                  <h1 class="mt-1 mb-3">64</h1>
+                  <h1 class="mt-1 mb-3">{{ count($totalPetugas) }}</h1>
                 </div>
               </div>
             </div>

@@ -27,7 +27,7 @@
               <button type="submit" class="btn btn-primary">Bulk Token</button>
             </div>
           </form>
-          <form action="{{ route('app.token.destroy', ['status' => 'aktif']) }}" method="POST" class="d-inline">
+          <form action="{{ route('app.token.destroy', ['status' => 'Tidak Aktif']) }}" method="POST" class="d-inline">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Delete All</button>
@@ -59,7 +59,9 @@
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $data->token }}</td>
-                    <td>{{ $data->status }}</td>
+                    <td><span
+                        class="badge {{ $data->status == 'Aktif' ? 'text-white text-bg-success' : 'text-bg-danger' }}">{{ $data->status }}</span>
+                    </td>
                     <td>{{ date('d F Y', strtotime($data->expired)) }}</td>
                   </tr>
                 @endforeach

@@ -28,8 +28,8 @@
         </a>
       </li>
       @if (Auth::user()->role == 'admin')
-        <li class="sidebar-item {{ Request::is('app/pemilih') ? 'active' : '' }}">
-          <a class="sidebar-link" href="{{ route('app.pemilih') }}">
+        <li class="sidebar-item {{ Request::is('app/voters') ? 'active' : '' }}">
+          <a class="sidebar-link" href="{{ route('app.voters') }}">
             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Voters</span>
           </a>
         </li>

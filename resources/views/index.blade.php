@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <main class="bg-warning" style="height: 100vh;">
+  <main class="" style="height: 100vh;">
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-md-4">
@@ -18,25 +18,38 @@
             <h1 class="fw-bold">Selamat Datang</h1>
             <p>Di Aplikasi E-Voting</p>
           </header>
-          <div class="card">
+          <div class="card border-0 shadow-lg">
             <div class="card-body">
-              <form action="">
+              <form action="{{ route('start.vote') }}" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label for="nama_lengkap" class="form-label fw-semibold">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="nama_lengkap">
+                  <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
+                    id="nama_lengkap">
+                  @error('nama')
+                    <div class="invalid-feedback">
+                      {{ $message }}.
+                    </div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                   <label for="kelas" class="form-label fw-semibold">Kelas <small class="text-secondary fw-normal"><i>
                         (optional)</i></small></label>
-                  <input type="text" class="form-control" id="kelas">
+                  <input type="text" name="kelas" class="form-control" id="kelas">
                 </div>
                 <div class="mb-3">
-                  <label for="token" class="form-label fw-semibold">Token</label>
-                  <input type="text" class="form-control" id="token">
+                  <label for="token" class="form-label fw-semibold ">Token</label>
+                  <input type="text" name="token" class="form-control @error('token') is-invalid @enderror"
+                    id="token">
+                  @error('token')
+                    <div class="invalid-feedback">
+                      {{ $message }}.
+                    </div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                   <div class="d-grid">
-                    <button type="submit" class="btn btn-dark">Masuk</button>
+                    <button type="submit" class="btn btn-primary">Masuk</button>
                   </div>
                 </div>
               </form>
@@ -47,6 +60,8 @@
             <div class="col text-center text-secondary">
               <small>Copyrigth &copy; 2023. created by <a href="https://github.com/alirfanyasin" target="_blank"
                   class="fw-semibold text-decoration-none text-dark">Irfan Yasin</a> </small>
+              <br>
+              <small class="text-center">Version 1.0.1</small>
             </div>
           </div>
         </div>

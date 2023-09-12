@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\TokenController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\VoteController;
+use App\Http\Middleware\EnsureHaveToken;
+use App\Http\Middleware\EnsureSuccessVote;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -24,7 +26,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', [VoteController::class, 'index']);
-    Route::get('/vote-kandidat', [VoteController::class, 'vote_kandidat']);
+    Route::post('/start-vote', [VoteController::class, 'start_vote'])->name('start.vote');
+
+    Route::get('/vote-candidate', [VoteController::class, 'vote_kandidat']);
+    Route::post('/vote/{id}', [VoteController::class, 'vote'])->name('vote');
+    Route::get('/success-vote', [VoteController::class, 'success_vote']);
 
     // Authentication
     Route::prefix('auth')->group(function () {
@@ -47,7 +53,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/token', [TokenController::class, 'index'])->name('app.token');
         Route::post('/token/bulk', [TokenController::class, 'bulk'])->name('app.token.bulk');
         Route::delete('/token/destroy/{status}', [TokenController::class, 'destroy'])->name('app.token.destroy');
-        Route::get('/pemilih', [PemilihController::class, 'index'])->name('app.pemilih');
+        Route::get('/voters', [PemilihController::class, 'index'])->name('app.voters');
+        Route::delete('/voters/destroy/{status}', [PemilihController::class, 'destroy'])->name('app.voters.destroy');
+
         Route::get('/monitoring', [MonitoringController::class, 'index'])->name('app.monitoring');
 
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

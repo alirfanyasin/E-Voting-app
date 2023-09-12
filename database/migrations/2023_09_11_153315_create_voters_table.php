@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('voters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('token_id')->constrained();
-            $table->foreignId('candidate_id')->constrained();
+            $table->unsignedBigInteger('candidate_id')->nullable();
             $table->string('nama', 100);
-            $table->string('kelas', 100);
-            $table->string('token');
+            $table->string('kelas', 100)->nullable();
+            $table->string('token')->unique();
+            $table->string('status', 100)->nullable()->default('aktif');
             $table->timestamps();
         });
     }

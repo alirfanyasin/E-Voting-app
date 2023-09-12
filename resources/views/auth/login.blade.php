@@ -10,9 +10,8 @@
 </head>
 
 <body>
-  <main class="bg-warning">
+  <main class="">
     <div class="container">
-
       <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-md-4">
           <header class="text-center mb-4">
@@ -30,7 +29,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           @enderror
-          <div class="card">
+          <div class="card border-0 shadow-lg">
             <div class="card-body">
               <form action="{{ route('login') }}" class="" method="POST">
                 @csrf
