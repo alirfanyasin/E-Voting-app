@@ -7,6 +7,7 @@ use App\Jobs\Token;
 use App\Models\Token as ModelsToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Str;
 
 class TokenController extends Controller
@@ -37,5 +38,12 @@ class TokenController extends Controller
     {
         ModelsToken::where('status', $status)->delete();
         return redirect()->route('app.token')->with('success', 'Data deleted successfully');
+    }
+
+    public function export()
+    {
+        $data = ModelsToken::where('status', 'Aktif')->get();
+        $pdf = Pdf::loadView('app.export.token', ['data' => $data]);
+        return $pdf->download('Token.pdf');
     }
 }

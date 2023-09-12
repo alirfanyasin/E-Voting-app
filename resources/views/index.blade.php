@@ -18,8 +18,14 @@
             <h1 class="fw-bold">Selamat Datang</h1>
             <p>Di Aplikasi E-Voting</p>
           </header>
+          @if (session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Error!</strong> {{ session('error') }}.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          @endif
           <div class="card border-0 shadow-lg">
-            <div class="card-body">
+            <div class="card-body pt-4">
               <form action="{{ route('start.vote') }}" method="POST">
                 @csrf
                 <div class="mb-3">
@@ -58,8 +64,8 @@
 
           <div class="row mt-4">
             <div class="col text-center text-secondary">
-              <small>Copyrigth &copy; 2023. created by <a href="https://github.com/alirfanyasin" target="_blank"
-                  class="fw-semibold text-decoration-none text-dark">Irfan Yasin</a> </small>
+              <small>Copyrigth &copy; 2023 E-Voting. Made with ❤️ by <a href="https://www.instagram.com/al_irfan_y/"
+                  target="_blank" class="fw-semibold text-decoration-none text-dark">Irfan Yasin</a> </small>
               <br>
               <small class="text-center">Version 1.0.1</small>
             </div>

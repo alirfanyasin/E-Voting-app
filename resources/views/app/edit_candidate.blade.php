@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', env('APP_NAME') . ' - Kandidat')
+@section('title', env('APP_NAME') . ' - Edit Candidate')
 
 @section('content')
   <div class="container-fluid p-0">

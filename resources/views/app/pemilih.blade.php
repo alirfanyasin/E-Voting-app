@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', env('APP_NAME') . ' - Pemilih')
+@section('title', env('APP_NAME') . ' - Voters')
 
 @if (Auth::user()->role == 'admin')
 

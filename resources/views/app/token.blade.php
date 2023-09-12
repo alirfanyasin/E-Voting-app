@@ -33,7 +33,9 @@
             <button type="submit" class="btn btn-danger">Delete All</button>
           </form>
           <div>
-            <a href="" class="btn btn-outline-danger"><i class="fa-regular fa-file-pdf"></i> Export to PDF</a>
+            <a href="{{ route('app.token.export') }}" class="btn btn-outline-danger"><i
+                class="fa-regular fa-file-pdf"></i>
+              Export to PDF</a>
           </div>
         </div>
       </div>

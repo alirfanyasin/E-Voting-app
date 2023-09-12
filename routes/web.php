@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/token', [TokenController::class, 'index'])->name('app.token');
         Route::post('/token/bulk', [TokenController::class, 'bulk'])->name('app.token.bulk');
         Route::delete('/token/destroy/{status}', [TokenController::class, 'destroy'])->name('app.token.destroy');
+        Route::get('/token/export', [TokenController::class, 'export'])->name('app.token.export');
         Route::get('/voters', [PemilihController::class, 'index'])->name('app.voters');
         Route::delete('/voters/destroy/{status}', [PemilihController::class, 'destroy'])->name('app.voters.destroy');
 

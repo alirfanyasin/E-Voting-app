@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>E-Voting</title>
+  <title>E-Voting - Register</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -18,7 +18,7 @@
             <h1 class="fw-bold">Register</h1>
           </header>
           <div class="card border-0 shadow-lg">
-            <div class="card-body">
+            <div class="card-body pt-4">
               <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
