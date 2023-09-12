@@ -14,6 +14,13 @@ class TokenController extends Controller
 {
     public function index()
     {
+        $now = date('Y-m-d');
+        $expired = ModelsToken::where('expired', $now)->get();
+
+        if ($expired) {
+            ModelsToken::destroy($expired);
+        }
+
         return view('app.token', [
             'token' => ModelsToken::all()
         ]);
