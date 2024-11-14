@@ -15,10 +15,10 @@ class TokenController extends Controller
     public function index()
     {
         $now = date('Y-m-d');
-        $expired = ModelsToken::where('expired', $now)->get();
+        $expiredTokens = ModelsToken::where('expired', '<=', $now)->where('status', '!=', 'Tidak Aktif')->get();
 
-        if ($expired) {
-            ModelsToken::destroy($expired);
+        foreach ($expiredTokens as $token) {
+            $token->update(['status' => 'Tidak Aktif']);
         }
 
         return view('app.token', [

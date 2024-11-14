@@ -22,7 +22,11 @@
         @foreach ($candidate as $key => $data)
           <div class="col-md-4 mb-4">
             <div class="card">
-              <img src="{{ asset('storage/image/candidate/' . $data->image) }}" class="card-img-top" alt="...">
+              <div class="" style="height: 300px; width: 100%;">
+                <img src="{{ asset('storage/image/candidate/' . $data->image) }}" class="card-img-top"
+                  style="height: 100%; width: 100%; object-fit: cover;" alt="...">
+              </div>
+              {{-- <img src="{{ asset('storage/image/candidate/' . $data->image) }}" class="card-img-top" alt="..."> --}}
               <div class="card-body">
                 <h5 class="card-title text-center">{{ $data->nama_ketua }} & {{ $data->nama_wakil }}</h5>
                 <div class="row mt-4">
@@ -48,7 +52,7 @@
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Visi Misi {{ $data->nama_ketua }} &
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $data->nama_ketua }} &
                     {{ $data->nama_wakil }}</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

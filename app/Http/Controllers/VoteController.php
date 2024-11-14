@@ -11,6 +11,9 @@ class VoteController extends Controller
 {
     public function index()
     {
+        if (session('token')) {
+            return redirect('vote-candidate');
+        }
         return view('index');
     }
 
@@ -37,7 +40,8 @@ class VoteController extends Controller
         } else {
             return redirect('/')->with('error', 'Token salah');
         }
-        return redirect('vote-candidate')->with('token', $request->token);
+        session(['token' => $request->token]);
+        return redirect('vote-candidate');
     }
 
 
@@ -57,6 +61,7 @@ class VoteController extends Controller
         $voter  = Voters::where('token', $token)->first();
 
         $voter->update(['candidate_id' => $id]);
+        session()->forget('token');
 
         return redirect('success-vote')->with('success_vote', 'Berhasil Memilih Kandidat');
     }
@@ -64,6 +69,9 @@ class VoteController extends Controller
 
     public function success_vote()
     {
+        if (session('token')) {
+            return redirect('vote-candidate');
+        }
         return view('success_vote');
     }
 }

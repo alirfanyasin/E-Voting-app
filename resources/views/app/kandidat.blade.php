@@ -20,7 +20,11 @@
         @foreach ($candidate as $key => $data)
           <div class="col-md-4">
             <div class="card">
-              <img src="{{ asset('storage/image/candidate/' . $data->image) }}" class="card-img-top" alt="...">
+              <div class="" style="height: 300px; width: 100%;">
+                <img src="{{ asset('storage/image/candidate/' . $data->image) }}" class="card-img-top"
+                  style="height: 100%; width: 100%; object-fit: cover;" alt="...">
+              </div>
+
               <div class="card-body">
                 <h5 class="card-title text-center">{{ $data->nama_ketua }} & {{ $data->nama_wakil }}</h5>
                 <div class="mt-4 d-flex gap-2">
