@@ -36,8 +36,8 @@ Route::middleware('guest')->group(function () {
     Route::prefix('auth')->group(function () {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
         Route::post('/login', [LoginController::class, 'login'])->name('login');
-        Route::get('/register', [RegisterController::class, 'index'])->name('register');
-        Route::post('/register', [RegisterController::class, 'register'])->name('register');
+        // Route::get('/register', [RegisterController::class, 'index'])->name('register');
+        // Route::post('/register', [RegisterController::class, 'register'])->name('register');
     });
 });
 
@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('app.dashboard');
         Route::get('/candidate', [KandidatController::class, 'index'])->name('app.candidate');
         Route::get('/candidate/create', [KandidatController::class, 'create'])->name('app.candidate.create');
+        // Route::post('/upload', [KandidatController::class, 'upload'])->name('upload');
         Route::post('/candidate/store', [KandidatController::class, 'store'])->name('app.candidate.store');
         Route::get('/candidate/edit/{id}', [KandidatController::class, 'edit'])->name('app.candidate.edit');
         Route::post('/candidate/update/{id}', [KandidatController::class, 'update'])->name('app.candidate.update');

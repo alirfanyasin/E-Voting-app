@@ -58,8 +58,8 @@
               </div>
               <div class="mb-3">
                 <label for="misi" class="fw-semibold">Misi</label>
-                <textarea name="misi" id="visi" cols="30" rows="6"
-                  class="form-control @error('misi') is-invalid @enderror" value="{{ old('misi') }}">{{ old('misi') }}</textarea>
+                <textarea name="misi" id="description" cols="30" rows="6" style="height: 200px;"
+                  placeholder="Tulis disini..." class="form-control @error('misi') is-invalid @enderror" value="{{ old('misi') }}">{{ old('misi') }}</textarea>
                 @error('misi')
                   <div class="invalid-feedback">
                     {{ $message }}.
@@ -88,7 +88,15 @@
         selectedImage.src = fileReader.result;
       };
 
-      fileReader.readAsDataURL(file); // Ubah menjadi Data URL agar dapat digunakan sebagai src gambar
+      fileReader.readAsDataURL(file);
     }
+  </script>
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+  <script>
+    ClassicEditor.create(document.querySelector('#description'))
+      .catch(error => {
+        console.error(error);
+      });
   </script>
 @endpush

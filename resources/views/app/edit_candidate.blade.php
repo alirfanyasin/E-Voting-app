@@ -59,7 +59,7 @@
               </div>
               <div class="mb-3">
                 <label for="misi" class="fw-semibold">Misi</label>
-                <textarea name="misi" id="visi" cols="30" rows="6"
+                <textarea name="misi" id="misi" cols="30" rows="6"
                   class="form-control @error('misi') is-invalid @enderror" value="{{ $data->misi }}">{{ $data->misi }}</textarea>
                 @error('misi')
                   <div class="invalid-feedback">
@@ -92,4 +92,13 @@
       fileReader.readAsDataURL(file); // Ubah menjadi Data URL agar dapat digunakan sebagai src gambar
     }
   </script>
+
+  
+<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor.create(document.querySelector('#misi'))
+  .catch(error => {
+  console.error(error);
+  });
+</script>
 @endpush

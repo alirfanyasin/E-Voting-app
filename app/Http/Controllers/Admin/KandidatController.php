@@ -23,6 +23,29 @@ class KandidatController extends Controller
         return view('app.create_candidate');
     }
 
+    public function upload(Request $request)
+    {
+        try {
+            $task = new Candidate();
+            $task->id = 0;
+            $task->exists = true;
+            $image = $request->input('upload');
+            return response()->json([
+                'uploaded' => true,
+                'url' => $image->getUrl('thumb')
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'uploaded' => false,
+                'error' => [
+                    'message' => $e->getMessage()
+                ]
+            ]);
+        }
+    }
+
+
+
     public function store(Request $request)
     {
         $validation = $request->validate([

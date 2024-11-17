@@ -20,7 +20,7 @@
           <p class="text-center">Berhasil memilih kandidat. <br> Terimakasih telah memberikan pilihan, silahkan kembali
           </p>
           <div class="text-center">
-            <a href="/" class="btn btn-primary">Kembali</a>
+            <a href="/" class="btn btn-warning">Kembali</a>
           </div>
         </div>
       </div>

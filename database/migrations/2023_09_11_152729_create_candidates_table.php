@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_ketua');
             $table->string('nama_wakil');
-            $table->text('visi');
-            $table->text('misi');
+            $table->longText('visi');
+            $table->longText('misi');
             $table->string('image');
             $table->timestamps();
         });

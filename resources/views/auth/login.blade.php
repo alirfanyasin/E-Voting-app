@@ -10,12 +10,23 @@
 </head>
 
 <body>
-  <main class="">
+  <main class="bg-warning">
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-md-4">
           <header class="text-center mb-4">
-            <h1 class="fw-bold">Login</h1>
+            <div class="row d-flex justify-content-center align-items-center mb-5">
+              <div class="col-md-2 col-3">
+                <img src="/img/logo/if.png" alt="Telkom University Surabaya" width="100%">
+              </div>
+              <div class="col-md-2 col-3">
+                <img src="/img/logo/telu.png" alt="Telkom University Surabaya" width="100%">
+              </div>
+              <div class="col-md-2 col-3">
+                <img src="/img/logo/hmif.png" alt="Telkom University Surabaya" width="100%">
+              </div>
+            </div>
+            {{-- <h1 class="fw-bold">Login</h1> --}}
           </header>
           @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -56,8 +67,8 @@
                 <div class="">
                   <div class="d-grid">
                     <button type="submit" class="btn btn-dark">Login</button>
-                    <p class="mt-3 text-center">Belum punya akun? <a href="{{ route('register') }}"
-                        class="text-decoration-none text-dark fw-semibold">Register</a></p>
+                    {{-- <p class="mt-3 text-center">Belum punya akun? <a href="{{ route('register') }}"
+                        class="text-decoration-none text-dark fw-semibold">Register</a></p> --}}
                   </div>
                 </div>
               </form>
